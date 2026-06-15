@@ -736,19 +736,33 @@ weights across 10 randomized model initializations.
 Metrics}}{2.4.3 Evaluation Metrics}}\label{evaluation-metrics}
 
 To comprehensively benchmark diagnostic performance, we report the
-following classification metrics: * \textbf{Classification Accuracy:}
-The percentage of correctly diagnosed patients. * \textbf{Sensitivity
-(Recall):} The true positive rate, representing the proportion of
-periodontitis patients successfully identified by the model. *
-\textbf{Specificity:} The true negative rate, representing the
-proportion of healthy subjects correctly identified. *
-\textbf{F1-Score:} The harmonic mean of Precision and Recall, providing
-a balanced performance measure under class distribution uncertainty. *
-\textbf{Receiver Operating Characteristic Area Under the Curve
-(ROC-AUC):} The overall discriminative capability across all
-classification thresholds. * \textbf{Average Precision (AP):} The area
-under the Precision-Recall curve, representing the model's positive
-predictive value scaling across different recall levels.
+following classification metrics:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Classification Accuracy:} The percentage of correctly
+  diagnosed patients.
+\item
+  \textbf{Sensitivity (Recall):} The true positive rate, representing
+  the proportion of periodontitis patients successfully identified by
+  the model.
+\item
+  \textbf{Specificity:} The true negative rate, representing the
+  proportion of healthy subjects correctly identified.
+\item
+  \textbf{F1-Score:} The harmonic mean of Precision and Recall,
+  providing a balanced performance measure under class distribution
+  uncertainty.
+\item
+  \textbf{Receiver Operating Characteristic Area Under the Curve
+  (ROC-AUC):} The overall discriminative capability across all
+  classification thresholds.
+\item
+  \textbf{Average Precision (AP):} The area under the Precision-Recall
+  curve, representing the model's positive predictive value scaling
+  across different recall levels.
+\end{itemize}
 
 In screening contexts, Sensitivity and ROC-AUC are prioritized over
 Average Precision, as the clinical cost of a missed periodontitis

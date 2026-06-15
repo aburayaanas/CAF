@@ -545,19 +545,15 @@ randomized model initializations.
 
 #### **2.4.3 Evaluation Metrics**
 
-To comprehensively benchmark diagnostic performance, we report the
-following classification metrics: \* **Classification Accuracy:** The
-percentage of correctly diagnosed patients. \* **Sensitivity (Recall):**
-The true positive rate, representing the proportion of periodontitis
-patients successfully identified by the model. \* **Specificity:** The
-true negative rate, representing the proportion of healthy subjects
-correctly identified. \* **F1-Score:** The harmonic mean of Precision
-and Recall, providing a balanced performance measure under class
-distribution uncertainty. \* **Receiver Operating Characteristic Area
-Under the Curve (ROC-AUC):** The overall discriminative capability
-across all classification thresholds. \* **Average Precision (AP):** The
-area under the Precision-Recall curve, representing the model's positive
-predictive value scaling across different recall levels.
+To comprehensively benchmark diagnostic performance, we report the following classification metrics:
+
+*   **Classification Accuracy:** The percentage of correctly diagnosed patients.
+*   **Sensitivity (Recall):** The true positive rate, representing the proportion of periodontitis patients successfully identified by the model.
+*   **Specificity:** The true negative rate, representing the proportion of healthy subjects correctly identified.
+*   **F1-Score:** The harmonic mean of Precision and Recall, providing a balanced performance measure under class distribution uncertainty.
+*   **Receiver Operating Characteristic Area Under the Curve (ROC-AUC):** The overall discriminative capability across all classification thresholds.
+*   **Average Precision (AP):** The area under the Precision-Recall curve, representing the model's positive predictive value scaling across different recall levels.
+
 
 In screening contexts, Sensitivity and ROC-AUC are prioritized over
 Average Precision, as the clinical cost of a missed periodontitis
