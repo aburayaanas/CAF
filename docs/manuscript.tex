@@ -898,26 +898,6 @@ ROC-AUC
 \end{longtable}
 }
 
-Model Name Accuracy Precision Recall F1-Score ROC-AUC (Sensitivity)\\
------------------------- ------------ ------------ ---------------
------------- ------------ \textbf{Baseline 65.2\% \(\pm\) 0.0\% 64.0\%
-\(\pm\) 0.0\% 69.6\% \(\pm\) 0.0\% 0.667 \(\pm\) 0.684 \(\pm\)
-(Questionnaire-Only)} 0.000 0.000
-
-\textbf{Late Concatenation 60.9\% \(\pm\) 0.0\% 59.3\% \(\pm\) 0.0\%
-69.6\% \(\pm\) 0.0\% 0.640 \(\pm\) 0.671 \(\pm\) Fusion} 0.000 0.000
-
-\textbf{Gated Multimodal Unit 62.0\% \(\pm\) 3.3\% 60.4\% \(\pm\) 3.0\%
-70.4\% \(\pm\) 5.0\% 0.649 \(\pm\) 0.654 \(\pm\) (GMU)} 0.033 0.032
-
-\textbf{Bilinear Tensor 63.0\% \(\pm\) 0.0\% 60.7\% \(\pm\) 0.0\% 73.9\%
-\(\pm\) 0.0\% 0.667 \(\pm\) 0.675 \(\pm\) Fusion} 0.000 0.000
-
-\textbf{CAF Gating Pipeline} \textbf{68.59\% \(\pm\) }67.23\% \(\pm\)
-\textbf{72.52\% \(\pm\) }0.698 \(\pm\) \textbf{0.7013 \(\pm\) 1.52\%}
-1.27\%** 2.53\%** 0.017** 0.0227**
---------------------------------------------------------------------------------------------
-
 \begin{figure}
 \centering
 \pandocbounded{\includegraphics[keepaspectratio,alt={Seed Stability Analysis. Histogram of model classification accuracy across 100 random seed runs under leave-one-out cross-validation (LOOCV), demonstrating the stability and robustness of the regularized gating architecture.}]{figure5_seed_stability.png}}

@@ -661,24 +661,6 @@ of our framework's classification accuracy across these runs.
 | **Gated Multimodal Unit (GMU)** | $62.0\% \pm 3.3\%$ | $60.4\% \pm 3.0\%$ | $70.4\% \pm 5.0\%$ | $0.649 \pm 0.033$ | $0.654 \pm 0.032$ |
 | **Bilinear Tensor Fusion** | $63.0\% \pm 0.0\%$ | $60.7\% \pm 0.0\%$ | $73.9\% \pm 0.0\%$ | $0.667 \pm 0.000$ | $0.675 \pm 0.000$ |
 | **CAF Gating Pipeline** | **$68.59\% \pm 1.52\%$** | **$67.23\% \pm 1.27\%$** | **$72.52\% \pm 2.53\%$** | **$0.698 \pm 0.017$** | **$0.7013 \pm 0.0227$** |
-  Model Name                 Accuracy    Precision       Recall        F1-Score     ROC-AUC
-                                                      (Sensitivity)               
-  ------------------------ ------------ ------------ --------------- ------------ ------------
-  **Baseline               65.2% $\pm$ 0.0% 64.0% $\pm$ 0.0%  69.6% $\pm$ 0.0%     0.667 $\pm$      0.684 $\pm$
-  (Questionnaire-Only)**                                                0.000        0.000
-
-  **Late Concatenation     60.9% $\pm$ 0.0% 59.3% $\pm$ 0.0%  69.6% $\pm$ 0.0%     0.640 $\pm$      0.671 $\pm$
-  Fusion**                                                              0.000        0.000
-
-  **Gated Multimodal Unit  62.0% $\pm$ 3.3% 60.4% $\pm$ 3.0%  70.4% $\pm$ 5.0%     0.649 $\pm$      0.654 $\pm$
-  (GMU)**                                                               0.033        0.032
-
-  **Bilinear Tensor        63.0% $\pm$ 0.0% 60.7% $\pm$ 0.0%  73.9% $\pm$ 0.0%     0.667 $\pm$      0.675 $\pm$
-  Fusion**                                                              0.000        0.000
-
-  **CAF Gating Pipeline**   **68.59% $\pm$   **67.23% $\pm$    **72.52% $\pm$     **0.698 $\pm$    **0.7013 $\pm$
-                             1.52%**      1.27%**        2.53%**       0.017**      0.0227**
-  --------------------------------------------------------------------------------------------
 
 ![Seed Stability Analysis. Histogram of model classification accuracy
 across 100 random seed runs under leave-one-out cross-validation
