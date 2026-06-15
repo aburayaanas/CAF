@@ -345,8 +345,7 @@ these logits to dynamic routing probabilities (P\_{tab}, P\_{soft},
 P\_{hard}) that scale aligned modality scores (s\_{tab}, s\_{soft},
 s\_{hard}). The final diagnostic prediction logit is scaled and shifted
 before being passed to a Sigmoid
-function.](figure1_architecture.png){width="5.833333333333333in"
-height="3.383198818897638in"}
+function.](figure1_architecture.png)
 
 **Clinical Attention Framework (CAF) Architecture Diagram.** The
 schematic shows how patient context features ($x_{gate}$) pass through a
@@ -684,8 +683,7 @@ of our framework's classification accuracy across these runs.
 ![Seed Stability Analysis. Histogram of model classification accuracy
 across 100 random seed runs under leave-one-out cross-validation
 (LOOCV), demonstrating the stability and robustness of the regularized
-gating architecture.](figure5_seed_stability.png){width="5.833333333333333in"
-height="3.499998906386702in"}
+gating architecture.](figure5_seed_stability.png)
 
 **Seed Stability Analysis.** Histogram of model classification accuracy
 across 100 random seed runs under leave-one-out cross-validation
@@ -755,8 +753,7 @@ P\_{soft} between non-vapers (n=24, blue) and active vapers (n=22, red)
 across the N=46 cohort, averaged over 100 LOOCV seeds. Individual
 patient weights are shown as jittered points. The separation is
 statistically significant (Welch's t = 16.44, Cohen's d = 4.99, p \< 2.2
-\\times 10\^{-16}).](figure2_attention_boxplot.png){width="5.833333333333333in"
-height="4.166666666666667in"}
+\\times 10\^{-16}).](figure2_attention_boxplot.png)
 
 **Clinical Soft-Tissue Attention Weight Distribution.** Boxplot
 comparing $P_{soft}$ between non-vapers ($n = 24$, blue) and active
@@ -774,8 +771,7 @@ inspect the patient-specific attention matrix (Figure 3).
 individual patient routing weights (P\_{tab}, P\_{soft}, P\_{hard})
 across all N=46 subjects. Patients are grouped by subgroup (non-vapers
 vs. active vapers) to show the distinct routing patterns learned by the
-gating network.](figure3_routing_heatmap.png){width="5.833333333333333in"
-height="4.537036307961505in"}
+gating network.](figure3_routing_heatmap.png)
 
 **Per-Patient Multimodal Gating Routing Weights.** Heatmap showing
 individual patient routing weights ($P_{tab},P_{soft},P_{hard}$) across
@@ -848,8 +844,7 @@ out-of-fold predictions of CAF and the Late Concatenation baseline
 and predictions of representative patients corrected by the CAF compared
 to the static baseline model. This illustrates the visual suppression of
 active vapers and correct visual routing of
-non-vapers.](figure9_mcnemar_cases.png){width="5.833333333333333in"
-height="1.6308234908136483in"}
+non-vapers.](figure9_mcnemar_cases.png)
 
 **McNemar Case Study Panel.** A table summarizing the clinical profiles
 and predictions of representative patients corrected by the CAF compared
@@ -895,8 +890,7 @@ superior overall discrimination across all decision thresholds.
 Curves. Benchmarking curves comparing the Clinical Attention Framework
 (CAF) with unimodal baselines and standard multimodal fusion strategies
 (Late Concatenation, GMU, and Bilinear Fusion) under leave-one-out
-cross-validation (LOOCV).](figure4_roc_pr_curves.png){width="5.833333333333333in"
-height="2.47415135608049in"}
+cross-validation (LOOCV).](figure4_roc_pr_curves.png)
 
 **Receiver Operating Characteristic (ROC) and Precision-Recall (PR)
 Curves.** Benchmarking curves comparing the Clinical Attention Framework
@@ -975,8 +969,7 @@ worse than a simple questionnaire baseline (60.9% vs. 65.2%) (Figure 7).
 a static fusion model is contaminated by misleading visual signals
 (erythema/swelling masked by nicotine vasoconstriction), leading to
 diagnostic errors, and how the CAF's exogenous context gate resolves
-this conflict.](figure7_contamination.png){width="5.833333333333333in"
-height="3.2885903324584427in"}
+this conflict.](figure7_contamination.png)
 
 **Multimodal Feature Contamination Mechanism.** Flowchart illustrating
 how a static fusion model is contaminated by misleading visual signals
@@ -1067,8 +1060,7 @@ showing the correlation between patient nicotine exposure intensity and
 the soft-tissue photo attention weight (P\_{soft}). Active vapers (red
 triangles) show a clear suppression of visual trust as exposure
 increases, while non-vapers (blue circles) maintain high visual
-trust.](figure8_dose_response.png){width="5.833333333333333in"
-height="4.374998906386701in"}
+trust.](figure8_dose_response.png)
 
 **Dose-Response Attention Routing vs. Nicotine Exposure.** Scatter plot
 showing the correlation between patient nicotine exposure intensity and
@@ -1148,8 +1140,7 @@ contents of the modality itself from hijacking the routing decision.
 final fused modality scores under the dynamic gating system (CAF)
 vs. static late concatenation. This visualizes how the dynamic gating
 network resolves conflicting signals by aligning patients along clinical
-clusters.](figure6_gated_projection.png){width="5.833333333333333in"
-height="2.5121172353455816in"}
+clusters.](figure6_gated_projection.png)
 
 **Principal Component Analysis (PCA) Gated Projection.** Projection of
 the final fused modality scores under the dynamic gating system (CAF)
@@ -1161,8 +1152,7 @@ clusters.
 mapping patient vaping features (Frequency, Duration, Nicotine) to
 output modalities (P\_{tab}, P\_{soft}, P\_{hard}). Values represent the
 ensembled weights averaged over 420 LOOCV
-runs.](figure10_w_gate_heatmap.png){width="5.833333333333333in"
-height="4.666665573053368in"}
+runs.](figure10_w_gate_heatmap.png)
 
 **Learned Gating Weight Matrix (**$W_{gating}$**) Heatmap.** Connection
 weights mapping patient vaping features (Frequency, Duration, Nicotine)
@@ -1315,8 +1305,7 @@ across clinical artificial intelligence (Figure 11).
 of the Binary Cross-Entropy loss across all 420 LOOCV runs, displaying
 the mean curve, \\pm 1 standard deviation band, min-max bounds, and
 representative individual
-trajectories.](figure11_loss_convergence.png){width="5.833333333333333in"
-height="4.117646544181977in"}
+trajectories.](figure11_loss_convergence.png)
 
 **Gating Network Training Loss Convergence Curves.** Convergence
 envelope of the Binary Cross-Entropy loss across all 420 LOOCV runs,

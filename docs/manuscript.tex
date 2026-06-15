@@ -510,7 +510,7 @@ flow of information based on external clinical context (the confounder)
 
 \begin{figure}
 \centering
-\includegraphics[width=5.83333in,height=3.3832in,alt={Clinical Attention Framework (CAF) Architecture Diagram. The schematic shows how patient context features (x\_\{gate\}) pass through a linear gating layer to generate modality logits. A Softmax function converts these logits to dynamic routing probabilities (P\_\{tab\}, P\_\{soft\}, P\_\{hard\}) that scale aligned modality scores (s\_\{tab\}, s\_\{soft\}, s\_\{hard\}). The final diagnostic prediction logit is scaled and shifted before being passed to a Sigmoid function.}]{figure1_architecture.png}
+\pandocbounded{\includegraphics[keepaspectratio,alt={Clinical Attention Framework (CAF) Architecture Diagram. The schematic shows how patient context features (x\_\{gate\}) pass through a linear gating layer to generate modality logits. A Softmax function converts these logits to dynamic routing probabilities (P\_\{tab\}, P\_\{soft\}, P\_\{hard\}) that scale aligned modality scores (s\_\{tab\}, s\_\{soft\}, s\_\{hard\}). The final diagnostic prediction logit is scaled and shifted before being passed to a Sigmoid function.}]{figure1_architecture.png}}
 \caption{Clinical Attention Framework (CAF) Architecture Diagram. The
 schematic shows how patient context features (x\_\{gate\}) pass through
 a linear gating layer to generate modality logits. A Softmax function
@@ -920,7 +920,7 @@ Model Name Accuracy Precision Recall F1-Score ROC-AUC (Sensitivity)\\
 
 \begin{figure}
 \centering
-\includegraphics[width=5.83333in,height=3.5in,alt={Seed Stability Analysis. Histogram of model classification accuracy across 100 random seed runs under leave-one-out cross-validation (LOOCV), demonstrating the stability and robustness of the regularized gating architecture.}]{figure5_seed_stability.png}
+\pandocbounded{\includegraphics[keepaspectratio,alt={Seed Stability Analysis. Histogram of model classification accuracy across 100 random seed runs under leave-one-out cross-validation (LOOCV), demonstrating the stability and robustness of the regularized gating architecture.}]{figure5_seed_stability.png}}
 \caption{Seed Stability Analysis. Histogram of model classification
 accuracy across 100 random seed runs under leave-one-out
 cross-validation (LOOCV), demonstrating the stability and robustness of
@@ -1025,7 +1025,7 @@ perform significance testing on the attention weights:
 
 \begin{figure}
 \centering
-\includegraphics[width=5.83333in,height=4.16667in,alt={Clinical Soft-Tissue Attention Weight Distribution. Boxplot comparing P\_\{soft\} between non-vapers (n=24, blue) and active vapers (n=22, red) across the N=46 cohort, averaged over 100 LOOCV seeds. Individual patient weights are shown as jittered points. The separation is statistically significant (Welch's t = 16.44, Cohen's d = 4.99, p \textless{} 2.2 \textbackslash times 10\^{}\{-16\}).}]{figure2_attention_boxplot.png}
+\pandocbounded{\includegraphics[keepaspectratio,alt={Clinical Soft-Tissue Attention Weight Distribution. Boxplot comparing P\_\{soft\} between non-vapers (n=24, blue) and active vapers (n=22, red) across the N=46 cohort, averaged over 100 LOOCV seeds. Individual patient weights are shown as jittered points. The separation is statistically significant (Welch's t = 16.44, Cohen's d = 4.99, p \textless{} 2.2 \textbackslash times 10\^{}\{-16\}).}]{figure2_attention_boxplot.png}}
 \caption{Clinical Soft-Tissue Attention Weight Distribution. Boxplot
 comparing P\_\{soft\} between non-vapers (n=24, blue) and active vapers
 (n=22, red) across the N=46 cohort, averaged over 100 LOOCV seeds.
@@ -1049,7 +1049,7 @@ inspect the patient-specific attention matrix (Figure 3).
 
 \begin{figure}
 \centering
-\includegraphics[width=5.83333in,height=4.53704in,alt={Per-Patient Multimodal Gating Routing Weights. Heatmap showing individual patient routing weights (P\_\{tab\}, P\_\{soft\}, P\_\{hard\}) across all N=46 subjects. Patients are grouped by subgroup (non-vapers vs.~active vapers) to show the distinct routing patterns learned by the gating network.}]{figure3_routing_heatmap.png}
+\pandocbounded{\includegraphics[keepaspectratio,alt={Per-Patient Multimodal Gating Routing Weights. Heatmap showing individual patient routing weights (P\_\{tab\}, P\_\{soft\}, P\_\{hard\}) across all N=46 subjects. Patients are grouped by subgroup (non-vapers vs.~active vapers) to show the distinct routing patterns learned by the gating network.}]{figure3_routing_heatmap.png}}
 \caption{Per-Patient Multimodal Gating Routing Weights. Heatmap showing
 individual patient routing weights (P\_\{tab\}, P\_\{soft\},
 P\_\{hard\}) across all N=46 subjects. Patients are grouped by subgroup
@@ -1154,7 +1154,7 @@ out-of-fold predictions of CAF and the Late Concatenation baseline
 
 \begin{figure}
 \centering
-\includegraphics[width=5.83333in,height=1.63082in,alt={McNemar Case Study Panel. A table summarizing the clinical profiles and predictions of representative patients corrected by the CAF compared to the static baseline model. This illustrates the visual suppression of active vapers and correct visual routing of non-vapers.}]{figure9_mcnemar_cases.png}
+\pandocbounded{\includegraphics[keepaspectratio,alt={McNemar Case Study Panel. A table summarizing the clinical profiles and predictions of representative patients corrected by the CAF compared to the static baseline model. This illustrates the visual suppression of active vapers and correct visual routing of non-vapers.}]{figure9_mcnemar_cases.png}}
 \caption{McNemar Case Study Panel. A table summarizing the clinical
 profiles and predictions of representative patients corrected by the CAF
 compared to the static baseline model. This illustrates the visual
@@ -1203,7 +1203,7 @@ superior overall discrimination across all decision thresholds.
 
 \begin{figure}
 \centering
-\includegraphics[width=5.83333in,height=2.47415in,alt={Receiver Operating Characteristic (ROC) and Precision-Recall (PR) Curves. Benchmarking curves comparing the Clinical Attention Framework (CAF) with unimodal baselines and standard multimodal fusion strategies (Late Concatenation, GMU, and Bilinear Fusion) under leave-one-out cross-validation (LOOCV).}]{figure4_roc_pr_curves.png}
+\pandocbounded{\includegraphics[keepaspectratio,alt={Receiver Operating Characteristic (ROC) and Precision-Recall (PR) Curves. Benchmarking curves comparing the Clinical Attention Framework (CAF) with unimodal baselines and standard multimodal fusion strategies (Late Concatenation, GMU, and Bilinear Fusion) under leave-one-out cross-validation (LOOCV).}]{figure4_roc_pr_curves.png}}
 \caption{Receiver Operating Characteristic (ROC) and Precision-Recall
 (PR) Curves. Benchmarking curves comparing the Clinical Attention
 Framework (CAF) with unimodal baselines and standard multimodal fusion
@@ -1289,7 +1289,7 @@ vs.~65.2\%) (Figure 7).
 
 \begin{figure}
 \centering
-\includegraphics[width=5.83333in,height=3.28859in,alt={Multimodal Feature Contamination Mechanism. Flowchart illustrating how a static fusion model is contaminated by misleading visual signals (erythema/swelling masked by nicotine vasoconstriction), leading to diagnostic errors, and how the CAF's exogenous context gate resolves this conflict.}]{figure7_contamination.png}
+\pandocbounded{\includegraphics[keepaspectratio,alt={Multimodal Feature Contamination Mechanism. Flowchart illustrating how a static fusion model is contaminated by misleading visual signals (erythema/swelling masked by nicotine vasoconstriction), leading to diagnostic errors, and how the CAF's exogenous context gate resolves this conflict.}]{figure7_contamination.png}}
 \caption{Multimodal Feature Contamination Mechanism. Flowchart
 illustrating how a static fusion model is contaminated by misleading
 visual signals (erythema/swelling masked by nicotine vasoconstriction),
@@ -1387,7 +1387,7 @@ using classification error minimization alone (Figure 8).
 
 \begin{figure}
 \centering
-\includegraphics[width=5.83333in,height=4.375in,alt={Dose-Response Attention Routing vs.~Nicotine Exposure. Scatter plot showing the correlation between patient nicotine exposure intensity and the soft-tissue photo attention weight (P\_\{soft\}). Active vapers (red triangles) show a clear suppression of visual trust as exposure increases, while non-vapers (blue circles) maintain high visual trust.}]{figure8_dose_response.png}
+\pandocbounded{\includegraphics[keepaspectratio,alt={Dose-Response Attention Routing vs.~Nicotine Exposure. Scatter plot showing the correlation between patient nicotine exposure intensity and the soft-tissue photo attention weight (P\_\{soft\}). Active vapers (red triangles) show a clear suppression of visual trust as exposure increases, while non-vapers (blue circles) maintain high visual trust.}]{figure8_dose_response.png}}
 \caption{Dose-Response Attention Routing vs.~Nicotine Exposure. Scatter
 plot showing the correlation between patient nicotine exposure intensity
 and the soft-tissue photo attention weight (P\_\{soft\}). Active vapers
@@ -1475,7 +1475,7 @@ contents of the modality itself from hijacking the routing decision.
 
 \begin{figure}
 \centering
-\includegraphics[width=5.83333in,height=2.51212in,alt={Principal Component Analysis (PCA) Gated Projection. Projection of the final fused modality scores under the dynamic gating system (CAF) vs.~static late concatenation. This visualizes how the dynamic gating network resolves conflicting signals by aligning patients along clinical clusters.}]{figure6_gated_projection.png}
+\pandocbounded{\includegraphics[keepaspectratio,alt={Principal Component Analysis (PCA) Gated Projection. Projection of the final fused modality scores under the dynamic gating system (CAF) vs.~static late concatenation. This visualizes how the dynamic gating network resolves conflicting signals by aligning patients along clinical clusters.}]{figure6_gated_projection.png}}
 \caption{Principal Component Analysis (PCA) Gated Projection. Projection
 of the final fused modality scores under the dynamic gating system (CAF)
 vs.~static late concatenation. This visualizes how the dynamic gating
@@ -1491,7 +1491,7 @@ clusters.
 
 \begin{figure}
 \centering
-\includegraphics[width=5.83333in,height=4.66667in,alt={Learned Gating Weight Matrix (W\_\{gating\}) Heatmap. Connection weights mapping patient vaping features (Frequency, Duration, Nicotine) to output modalities (P\_\{tab\}, P\_\{soft\}, P\_\{hard\}). Values represent the ensembled weights averaged over 420 LOOCV runs.}]{figure10_w_gate_heatmap.png}
+\pandocbounded{\includegraphics[keepaspectratio,alt={Learned Gating Weight Matrix (W\_\{gating\}) Heatmap. Connection weights mapping patient vaping features (Frequency, Duration, Nicotine) to output modalities (P\_\{tab\}, P\_\{soft\}, P\_\{hard\}). Values represent the ensembled weights averaged over 420 LOOCV runs.}]{figure10_w_gate_heatmap.png}}
 \caption{Learned Gating Weight Matrix (W\_\{gating\}) Heatmap.
 Connection weights mapping patient vaping features (Frequency, Duration,
 Nicotine) to output modalities (P\_\{tab\}, P\_\{soft\}, P\_\{hard\}).
@@ -1648,7 +1648,7 @@ across clinical artificial intelligence (Figure 11).
 
 \begin{figure}
 \centering
-\includegraphics[width=5.83333in,height=4.11765in,alt={Gating Network Training Loss Convergence Curves. Convergence envelope of the Binary Cross-Entropy loss across all 420 LOOCV runs, displaying the mean curve, \textbackslash pm 1 standard deviation band, min-max bounds, and representative individual trajectories.}]{figure11_loss_convergence.png}
+\pandocbounded{\includegraphics[keepaspectratio,alt={Gating Network Training Loss Convergence Curves. Convergence envelope of the Binary Cross-Entropy loss across all 420 LOOCV runs, displaying the mean curve, \textbackslash pm 1 standard deviation band, min-max bounds, and representative individual trajectories.}]{figure11_loss_convergence.png}}
 \caption{Gating Network Training Loss Convergence Curves. Convergence
 envelope of the Binary Cross-Entropy loss across all 420 LOOCV runs,
 displaying the mean curve, \textbackslash pm 1 standard deviation band,
