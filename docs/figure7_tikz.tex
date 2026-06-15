@@ -1,0 +1,75 @@
+% TikZ code for Figure 7: Contamination Mechanism Diagram
+% Copy and paste this code directly into your LaTeX/Overleaf document.
+% Make sure to include \usepackage{tikz} and \usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds} in your LaTeX preamble.
+
+\begin{figure*}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=1.0cm and 1.5cm,
+    box/.style={
+        rectangle, 
+        draw=#1!80!black, 
+        fill=#1!10, 
+        minimum width=4.5cm, 
+        minimum height=1.0cm, 
+        align=center, 
+        rounded corners=3pt, 
+        line width=1pt,
+        font=\small
+    },
+    arrow/.style={
+        -{Stealth[scale=1.0]}, 
+        line width=1.0pt, 
+        draw=gray!80!black
+    },
+    title_font/.style={
+        font=\sffamily\bfseries\color{#1}
+    }
+]
+
+    % Color definitions: green for non-vapers, red for vapers (static), blue for CAF, gray for general
+
+    % ==========================================
+    % PATHWAY A: NON-VAPER COHORT
+    % ==========================================
+    \node (xtab_a) [box=gray] {Diseased Periodontitis Patient \\ \scriptsize (Active Tissue Destruction)};
+    \node (xsoft_a) [box=green, below=of xtab_a] {Gingival Microvasculature Dilates \\ \scriptsize (Erythema \& Bleeding Present)};
+    \node (s_soft_a) [box=green, below=of xsoft_a] {Clinical Photo score is high: \\ \scriptsize $s_{soft} \approx 1.0$ (Highly Informative)};
+    \node (predict_a) [box=green, below=of s_soft_a, font=\small\bfseries] {Static / Gated Model predicts: \\ \scriptsize $w_{soft} s_{soft} > 0$  $\to$  Periodontitis \\ \scriptsize [CORRECT DIAGNOSIS]};
+
+    \draw [arrow] (xtab_a) -- (xsoft_a);
+    \draw [arrow] (xsoft_a) -- (s_soft_a);
+    \draw [arrow] (s_soft_a) -- (predict_a);
+
+    \begin{scope}[on background layer]
+        \node[draw=green!20, fill=green!1, dashed, rounded corners, fit=(xtab_a) (predict_a), inner sep=0.4cm] (group_a) {};
+    \end{scope}
+    \node[anchor=south, title_font=green!70!black] at (group_a.north) {PATHWAY A: NON-VAPER COHORT};
+
+    % ==========================================
+    % PATHWAY B: ACTIVE VAPER COHORT
+    % ==========================================
+    \node (xtab_b) [box=gray, right=3.0cm of xtab_a] {Diseased Periodontitis Patient \\ \scriptsize (Active Tissue Destruction)};
+    \node (xsoft_b) [box=red, below=of xtab_b] {Nicotine Vasoconstriction Masks Signs \\ \scriptsize (Pink, Firm Gums / No Bleeding)};
+    \node (s_soft_b) [box=red, below=of xsoft_b] {Clinical Photo score is low: \\ \scriptsize $s_{soft} \approx 0.0$ (Deceptive Input)};
+
+    \draw [arrow] (xtab_b) -- (xsoft_b);
+    \draw [arrow] (xsoft_b) -- (s_soft_b);
+
+    % Splits
+    \node (predict_b_static) [box=red, below left=1.2cm and -1.0cm of s_soft_b, minimum width=3.5cm, font=\small\bfseries] {STATIC FUSION \\ \scriptsize Forced global $w_{soft} > 0$ \\ \scriptsize $w_{soft} s_{soft} \to 0$ \\ \scriptsize [FALSE NEGATIVE] \\ \scriptsize (Boundary Contamination)};
+    
+    \node (predict_b_caf) [box=blue, below right=1.2cm and -1.0cm of s_soft_b, minimum width=3.5cm, font=\small\bfseries] {CAF GATING \\ \scriptsize Gate evaluates $x_{gate}$ (Vaping) \\ \scriptsize Suppresses $P_{soft} \to 0.0$ \\ \scriptsize Routes trust to $P_{tab}$ \\ \scriptsize [CORRECT DIAGNOSIS]};
+
+    \draw [arrow] (s_soft_b.south) -- ($(s_soft_b.south) + (0,-0.4)$) -| (predict_b_static.north);
+    \draw [arrow] (s_soft_b.south) -- ($(s_soft_b.south) + (0,-0.4)$) -| (predict_b_caf.north);
+
+    \begin{scope}[on background layer]
+        \node[draw=red!20, fill=red!1, dashed, rounded corners, fit=(xtab_b) (predict_b_static) (predict_b_caf), inner sep=0.4cm] (group_b) {};
+    \end{scope}
+    \node[anchor=south, title_font=red!70!black] at (group_b.north) {PATHWAY B: ACTIVE VAPER COHORT};
+
+\end{tikzpicture}
+\caption{The Contamination Mechanism vs. Gated Resolution. In non-vapers (Pathway A), clinical signs of inflammation are visible and the photo score is highly informative. In active vapers (Pathway B), nicotine-induced vasoconstriction hides inflammation, presenting a deceptive visual score. Traditional static fusion is misled by this mask, causing false negatives (boundary contamination), whereas the CAF's exogenous gate suppresses visual trust and routes attention to clean modalities to yield correct diagnoses.}
+\label{fig:contamination}
+\end{figure*}

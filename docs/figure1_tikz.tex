@@ -1,0 +1,128 @@
+% TikZ code for Figure 1: CAF Architecture Diagram
+% Copy and paste this code directly into your LaTeX/Overleaf document.
+% Make sure to include \usepackage{tikz} and \usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc} in your LaTeX preamble.
+
+\begin{figure*}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=1.5cm and 1.2cm,
+    box/.style={
+        rectangle, 
+        draw=#1!80!black, 
+        fill=#1!10, 
+        minimum width=2.5cm, 
+        minimum height=0.9cm, 
+        align=center, 
+        rounded corners=2pt, 
+        line width=1pt,
+        font=\small
+    },
+    circle_op/.style={
+        circle, 
+        draw=#1!80!black, 
+        fill=#1!10, 
+        minimum size=0.6cm, 
+        align=center, 
+        line width=1pt,
+        font=\small\bfseries
+    },
+    arrow/.style={
+        -{Stealth[scale=1.0]}, 
+        line width=0.8pt, 
+        draw=gray!80!black
+    },
+    gate_arrow/.style={
+        -{Stealth[scale=1.0]}, 
+        line width=1.2pt, 
+        draw=blue!70!black
+    },
+    title_font/.style={
+        font=\sffamily\bfseries\color{gray!80!black}
+    }
+]
+
+    % Color definitions
+    % Gate = blue, Tabular = green, Soft-tissue = orange, Radiograph = red, Gray = gray
+
+    % ----------------------------------------------------
+    % PHASE 1: ALIGNMENT (PREDICTORS)
+    % ----------------------------------------------------
+    % Tabular Stream
+    \node (xtab) [box=green] {$X_{tab}$ \\ \scriptsize Questionnaire};
+    \node (s_tab_enc) [box=green, right=of xtab] {$s_{tab} = f(X_{tab})$ \\ \scriptsize Logistic Regression};
+    
+    % Visual Soft-tissue Stream
+    \node (xsoft) [box=orange, below=0.6cm of xtab] {$X_{soft}$ \\ \scriptsize Clinical Photos};
+    \node (s_soft_enc) [box=orange, right=of xsoft] {$s_{soft}$ \\ \scriptsize Clinician Rating};
+    
+    % Radiographic Stream
+    \node (xhard) [box=red, below=0.6cm of xsoft] {$X_{hard}$ \\ \scriptsize Radiographs};
+    \node (s_hard_enc) [box=red, right=of xhard] {$s_{hard} = 1.0$ \\ \scriptsize Simulated Score};
+
+    % Draw Phase 1 Connecting Arrows
+    \draw [arrow] (xtab) -- (s_tab_enc);
+    \draw [arrow] (xsoft) -- (s_soft_enc);
+    \draw [arrow] (xhard) -- (s_hard_enc);
+
+    % Background Box for Phase 1
+    \begin{scope}[on background layer]
+        \node[draw=gray!20, fill=gray!2, dashed, rounded corners, fit=(xtab) (s_hard_enc), inner sep=0.3cm] (phase1_bg) {};
+    \end{scope}
+    \node[anchor=south, title_font] at (phase1_bg.north) {PHASE 1: MODALITY ALIGNMENT};
+
+    % ----------------------------------------------------
+    % PHASE 2: CONFLICT-RESOLUTION GATING
+    % ----------------------------------------------------
+    % Confounder Inputs & Gate Layer
+    \node (xgate) [box=blue, above right=0.2cm and 1.5cm of s_tab_enc, yshift=0.5cm] {$x_{gate}$ \\ \scriptsize [Freq, Nic, Dur]};
+    \node (z_logits) [box=blue, right=of xgate] {$z = W_{gate} x_{gate} + b_{gate}$ \\ \scriptsize Linear Gating Layer};
+    \node (softmax) [box=blue, right=of z_logits] {$P_m = \text{Softmax}(z)_m$ \\ \scriptsize Attention Routing};
+
+    \draw [arrow] (xgate) -- (z_logits);
+    \draw [arrow] (z_logits) -- (softmax);
+
+    % Multiplication nodes
+    \node (mult_tab) [circle_op=green, right=4.5cm of s_tab_enc] {$\times$};
+    \node (mult_soft) [circle_op=orange, right=4.5cm of s_soft_enc] {$\times$};
+    \node (mult_hard) [circle_op=red, right=4.5cm of s_hard_enc] {$\times$};
+
+    % Connect aligned scores to multipliers
+    \draw [arrow] (s_tab_enc) -- node[above, font=\scriptsize, pos=0.7] {$s_{tab}$} (mult_tab);
+    \draw [arrow] (s_soft_enc) -- node[above, font=\scriptsize, pos=0.7] {$s_{soft}$} (mult_soft);
+    \draw [arrow] (s_hard_enc) -- node[above, font=\scriptsize, pos=0.7] {$s_{hard}$} (mult_hard);
+
+    % Gating paths from Softmax to multipliers
+    \draw [gate_arrow] (softmax.south) -| node[right, font=\scriptsize, near end] {$P_{tab}$} (mult_tab.north);
+    \draw [gate_arrow] (softmax.south) -| node[right, font=\scriptsize, near end, xshift=-0.5cm] {$P_{soft}$} (mult_soft.north);
+    \draw [gate_arrow] (softmax.south) -| node[right, font=\scriptsize, near end, xshift=-1.0cm] {$P_{hard}$} (mult_hard.north);
+
+    % Summation node
+    \node (sum) [circle_op=gray, right=2.0cm of mult_soft, yshift=0.2cm] {$\sum$};
+
+    % Connect multipliers to Summation node
+    \draw [arrow] (mult_tab.east) -- (sum);
+    \draw [arrow] (mult_soft.east) -- (sum);
+    \draw [arrow] (mult_hard.east) -- (sum);
+
+    % Scale block
+    \node (scale) [box=gray, right=1.2cm of sum] {$scale = \log(1+e^\gamma)$ \\ \scriptsize Softplus Scale};
+    \draw [arrow] (sum) -- (scale);
+
+    % Logit Calculation
+    \node (logit) [box=gray, right=1.2cm of scale] {$y_{logit} = scale \cdot \sum + b_{classifier}$ \\ \scriptsize Logit Calculation};
+    \draw [arrow] (scale) -- (logit);
+
+    % Output Sigmoid
+    \node (output) [box=blue, below=1.0cm of logit] {$\hat{y} = \sigma(y_{logit})$ \\ \scriptsize Diagnostic Output};
+    \draw [arrow] (logit) -- (output);
+
+    % Background Box for Phase 2
+    \begin{scope}[on background layer]
+        \node[draw=gray!20, fill=gray!2, dashed, rounded corners, fit=(xgate) (output) (mult_hard), inner sep=0.3cm] (phase2_bg) {};
+    \end{scope}
+    \node[anchor=south, title_font] at (phase2_bg.north) {PHASE 2: CONFOUNDER-DRIVEN DYNAMIC ROUTING};
+
+\end{tikzpicture}
+\caption{The Clinical Attention Framework (CAF) Architecture. Phase 1 maps raw inputs into calibrated predictors ($s_m$). Phase 2 evaluates the patient-specific vaping habits ($x_{gate}$) to dynamically compute gating attention weights ($P_m$) that route diagnostic trust, outputting the final calibrated periodontal risk score ($\hat{y}$).}
+\label{fig:architecture}
+\end{figure*}
