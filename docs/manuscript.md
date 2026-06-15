@@ -654,9 +654,9 @@ of our framework's classification accuracy across these runs.
 
 **Table 1: Classification Performance Summary (Mean $\pm$ SD)**
 
-| Model Name | Accuracy | Precision | Recall (Sensitivity) | F1-Score | ROC-AUC |
+| Model Name | Accuracy | Precision | Recall (Sens.) | F1-Score | ROC-AUC |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Baseline (Questionnaire-Only)** | $65.2\% \pm 0.0\%$ | $64.0\% \pm 0.0\%$ | $69.6\% \pm 0.0\%$ | $0.667 \pm 0.000$ | $0.684 \pm 0.000$ |
+| **Questionnaire Baseline** | $65.2\% \pm 0.0\%$ | $64.0\% \pm 0.0\%$ | $69.6\% \pm 0.0\%$ | $0.667 \pm 0.000$ | $0.684 \pm 0.000$ |
 | **Late Concatenation Fusion** | $60.9\% \pm 0.0\%$ | $59.3\% \pm 0.0\%$ | $69.6\% \pm 0.0\%$ | $0.640 \pm 0.000$ | $0.671 \pm 0.000$ |
 | **Gated Multimodal Unit (GMU)** | $62.0\% \pm 3.3\%$ | $60.4\% \pm 3.0\%$ | $70.4\% \pm 5.0\%$ | $0.649 \pm 0.033$ | $0.654 \pm 0.032$ |
 | **Bilinear Tensor Fusion** | $63.0\% \pm 0.0\%$ | $60.7\% \pm 0.0\%$ | $73.9\% \pm 0.0\%$ | $0.667 \pm 0.000$ | $0.675 \pm 0.000$ |
@@ -687,9 +687,9 @@ reaches $69.57\%$ accuracy and $0.7127$ ROC-AUC (Table 2).
 
 **Table 2: Ensembled Model Performance (10-Seed Ensemble)**
 
-| Model | Accuracy | Precision | Recall (Sensitivity) | F1-Score | ROC-AUC |
+| Model | Accuracy | Precision | Recall (Sens.) | F1-Score | ROC-AUC |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Late Concatenation (Ensembled)** | $60.87\%$ | $59.26\%$ | $69.57\%$ | $0.6400$ | $0.6730$ |
+| **Late Concatenation (Ensemble)** | $60.87\%$ | $59.26\%$ | $69.57\%$ | $0.6400$ | $0.6730$ |
 | **Clinical Attention Framework (CAF)** | **$69.57\%$** | **$68.00\%$** | **$73.91\%$** | **$0.7083$** | **$0.7127$** |
 
 ### **3.2 Confounder-Driven Routing Analysis**
